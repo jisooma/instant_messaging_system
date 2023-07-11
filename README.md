@@ -3,7 +3,6 @@
 
 
 ![Image text](https://github.com/jisooma/instant_messaging_system/blob/main/images/functions.png)
-![Image text](https://github.com/jisooma/instant_messaging_system/tree/main/images/ER.jpg)
 
 ## 部分界面
 ![Image text](https://github.com/jisooma/instant_messaging_system/blob/main/images/images.png)
