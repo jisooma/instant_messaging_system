@@ -1,5 +1,14 @@
 # instant_messaging_system
-安全即时通讯系统   javaweb + mysql
+安全即时通讯系统(2020)   javaweb + mysql
+
+
+![Image text](https://github.com/jisooma/instant_messaging_system/blob/main/images/functions.png)
+![Image text](https://github.com/jisooma/instant_messaging_system/tree/main/images/ER.jpg)
+
+## 部分界面
+![Image text](https://github.com/jisooma/instant_messaging_system/blob/main/images/images.png)
+![Image text](https://github.com/jisooma/instant_messaging_system/blob/main/images/images2.png)
+![Image text](https://github.com/jisooma/instant_messaging_system/blob/main/images/images3.png)
 
 -  本即时通信系统分为6个模块，分别是登录注册模块，用户管理模块，搜索添加好友模块，群聊模块，好友管理模块，加密模块，日志管理模块组成。
 
@@ -14,6 +23,16 @@
 -  好友管理：用户可以对好友进行管理，可以与好友聊天，删除好友，修改好友信息。好友之间的聊天为私聊，当需要发送消息时，直接在通讯录找见对应的好友，点击发消息，即可以和好友聊天。用户可以在通讯录找见好友，点击好友的头像，即可以对好友进行备注，描述的修改等等。点击删除好友，即可以删除好友。
 
 -  加密模块：需要对用户的密码进行加密，需要对用户发送的消息进行加密，加密的密钥可以放在数据库进行管理。每个群聊都共用同一个密钥对。密钥保存在每个用户中，成员在发送消息时，用公用的公钥进行加密，收到消息的人用私钥解密。
+  [ 加密思想：
+前端实现对信息进行md5和rsa加密。然后提交到后端。
+md5加密用于消息完整性验证。rsa用于加密信息。
+第一步：对信息进行md5加密。
+第二部：对进行rsa加密。（其加密的密钥对是与服务器端相匹配的，其生成时间是用户浏览注册页面时，便生成密钥对，并且将公钥传输到前端，私钥保存在数据库。）
+分开传输两部分密文。
+第三步：将传输过来的rsa密文解密后形成明文，然后对明文进行md5，将两个md5密文进行对比，如果匹配则消息未被篡改。否则被篡改。
+1：密码直接对其md5加密后放进数据库。
+2：群聊：每个群聊都共用同一个密钥对。密钥保存在每个用户中，成员在发送消息时，用公用的公钥进行加密，收到消息的人用私钥解密。
+]
 
 -  日志管理：通过Apache的log4j包实现，通过使用 Log4j ，我们可以控制日志信息输送的目的地是控制台、文件、 GUI 组件等等。Log4j 由三个重要的组件构成：日志信息的优先级，日志信息的输出目的地，日志信息的输出格式 。日志信息的优先级从高到低有 ERROR 、 WARN 、 INFO 、 DEBUG ，分别用来指定这条日志信息的重要程度；日志信息的输出目的地指定了日志将打印到控制台还是文件，例如org.apache.log4j.ConsoleAppender（控制台）和org.apache.log4j.FileAppender （文件）；而输出格式则控制了日志信息的显示内容。
 
